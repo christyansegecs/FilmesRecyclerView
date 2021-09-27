@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -35,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         Adapter adapter = new Adapter(listaFilmes);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapter);
+
 
         //evento de click
         recyclerView.addOnItemTouchListener(
@@ -75,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
                         }
                 )
         );
+    }
+
+    public void enviar(View view) {
+
+        EditText nameInput = findViewById(R.id.nameInput);
+        Button addButton = (Button) findViewById(R.id.button);
+
+        String titleMovie = nameInput.getText().toString();
+        Filme filme = new Filme(titleMovie,"unknown","unknown");
+        this.listaFilmes.add(filme);
 
     }
 
@@ -95,7 +108,5 @@ public class MainActivity extends AppCompatActivity {
         filme = new Filme("Pulp Fiction","Drama","1994");
         this.listaFilmes.add(filme);
 
-
     }
-
 }

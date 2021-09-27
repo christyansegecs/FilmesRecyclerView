@@ -19,7 +19,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     public Adapter(List<Filme> lista) {
         this.listaFilmes = lista;
-
     }
 
     @NonNull
@@ -27,9 +26,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_lista, parent, false);
-
         return new MyViewHolder(itemLista);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -37,7 +36,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.titulo.setText(filme.getTituloFilme());
         holder.ano.setText(filme.getAno());
         holder.genero.setText(filme.getGenero());
-
     }
 
     @Override
@@ -50,6 +48,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         TextView titulo;
         TextView ano;
         TextView genero;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
